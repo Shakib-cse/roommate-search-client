@@ -1,6 +1,7 @@
 import React, { use, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthContext";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { singIn, googleLogin } = use(AuthContext);
@@ -24,7 +25,11 @@ const Login = () => {
         } else {
           navigate("/");
         }
-        alert("Login successfully");
+        Swal.fire({
+          title: "Login successfully",
+          icon: "success",
+          draggable: true,
+        });
         // if (!data.user.emailVerified) {
         //   alert("Please verify your email before logging in.");
         //   logout();

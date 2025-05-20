@@ -8,6 +8,9 @@ import Login from "../Components/Login";
 import Registration from "../Components/Registration";
 import ErrorPage from "../Components/ErrorPage";
 import PrivetRoute from "./PrivetRoute";
+import TermsAndConditions from "../Components/TermsAndConditions";
+import FAQ from "../Components/FAQ";
+import PrivacyPolicy from "../Components/PrivacyPolicy";
 
 
 let router = createBrowserRouter([
@@ -22,6 +25,18 @@ let router = createBrowserRouter([
             {path: '/login', Component: Login},
             {path: '/registration', Component: Registration},
         ]
+    },
+    {
+        path: "/termsandconditions",
+        element: <TermsAndConditions/>
+    },
+    {
+        path: "/faq",
+        element: <FAQ/>
+    },
+    {
+        path: "/privacypolicy",
+        element: <PrivacyPolicy/>
     },
     {
         path: "*",

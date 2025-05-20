@@ -1,8 +1,8 @@
-
 import { Link, useNavigate } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import { AuthContext } from "../Provider/AuthContext";
 import { use } from "react";
+import Swal from "sweetalert2";
 
 const Header = () => {
   const { user, logout } = use(AuthContext);
@@ -11,7 +11,13 @@ const Header = () => {
   const logoutBtn = () => {
     logout()
       .then(() => {
-        alert("logout successfully");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Logout Seccessfull",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate("/");
       })
       .catch((error) => {
@@ -69,21 +75,28 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <div className="mr-2"><ThemeToggle /></div>
+        <div className="mr-2">
+          <ThemeToggle />
+        </div>
         {user ? (
           <>
-          <img src="https://i.ibb.co/rL63m2v/0000052779.jpg" alt="profile" className="w-10 h-10 rounded-full mx-2" />
-          <button onClick={logoutBtn} className="btn">
-            Logout
-          </button>
+            <img
+              src="https://i.ibb.co/rL63m2v/0000052779.jpg"
+              alt="profile"
+              className="w-10 h-10 rounded-full mx-2"
+            />
+            <button onClick={logoutBtn} className="btn">
+              Logout
+            </button>
           </>
         ) : (
-          <><Link to="/login" className="btn">
-            Login
-          </Link>
-          <Link to="/registration" className="btn ml-1">
-            Register
-          </Link>
+          <>
+            <Link to="/login" className="btn">
+              Login
+            </Link>
+            <Link to="/registration" className="btn ml-1">
+              Register
+            </Link>
           </>
         )}
       </div>

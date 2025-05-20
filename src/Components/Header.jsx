@@ -1,33 +1,40 @@
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
+import { AuthContext } from "../Provider/AuthContext";
+import { use } from "react";
 
 const Header = () => {
-//   const { user, logout } = use(AuthContext);
-//   console.log(user);
-//   const navigate = useNavigate();
+  //const { user, logout } = use(AuthContext);
+  const navigate = useNavigate();
 
-//   const logoutBtn = () => {
-//     logout()
-//       .then(() => {
-//         alert("logout successfully");
-//         navigate("/");
-//       })
-//       .catch((error) => {
-//         console.error("Error signing out:", error);
-//       });
-//   };
+  const logoutBtn = () => {
+    logout()
+      .then(() => {
+        alert("logout successfully");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error signing out:", error);
+      });
+  };
 
   const links = (
     <ul className="p-2 lg:flex justify-center items-center gap-1">
       <li>
-        <Link to="/">home</Link>
+        <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/about">about</Link>
+        <Link to="/addtofindroommate">Add to Find Roommate</Link>
       </li>
       <li>
-        <Link to="/allusers">All Users</Link>
+        <Link to="/browselisting">Browse Listing</Link>
+      </li>
+      <li>
+        <Link to="/mylisting">My Listing</Link>
+      </li>
+      <li>
+        <Link to="/login">Login</Link>
       </li>
       {/* {user && (
         <li>

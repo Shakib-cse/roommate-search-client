@@ -27,7 +27,7 @@ const Registration = () => {
       if (!isValidA_Z) passwordErrors.push("at least one uppercase letter");
       if (!isValidDig) passwordErrors.push("at least one number");
 
-      setPasswordValid(passwordErrors.join(" ||| "));
+      setPasswordValid(passwordErrors.map(e => `• ${e}`).join("\n"));
     }
   };
 
@@ -163,7 +163,7 @@ const Registration = () => {
             onChange={handleChange}
           />
 
-          <div className="text-warning">{passwordValid}</div>
+          <div className="text-warning whitespace-pre-line">{passwordValid}</div>
 
           <button type="submit" className="btn btn-neutral mt-4">
             Registration

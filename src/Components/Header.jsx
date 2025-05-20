@@ -71,9 +71,12 @@ const Header = () => {
       <div className="navbar-end">
         <div className="mr-2"><ThemeToggle /></div>
         {user ? (
-          <a onClick={logoutBtn} className="btn">
+          <>
+          <img src="https://i.ibb.co/rL63m2v/0000052779.jpg" alt="profile" className="w-10 h-10 rounded-full mx-2" />
+          <button onClick={logoutBtn} className="btn">
             Logout
-          </a>
+          </button>
+          </>
         ) : (
           <><Link to="/login" className="btn">
             Login

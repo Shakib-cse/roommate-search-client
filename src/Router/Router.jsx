@@ -6,6 +6,7 @@ import BrowseListing from "../Components/BrowseListing";
 import MyListing from "../Components/MyListing";
 import Login from "../Components/Login";
 import Registration from "../Components/Registration";
+import ErrorPage from "../Components/ErrorPage";
 import PrivetRoute from "./PrivetRoute";
 
 
@@ -21,6 +22,10 @@ let router = createBrowserRouter([
             {path: '/login', Component: Login},
             {path: '/registration', Component: Registration},
         ]
+    },
+    {
+        path: "*",
+        Component: ErrorPage
     }
 ]);
 export default router;

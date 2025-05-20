@@ -79,7 +79,7 @@ const Login = () => {
   //   };
 
   return (
-    <div className="flex justify-center items-center py-3">
+    <div className="flex justify-center items-center py-3 w-11/12 mx-auto">
       <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
         <legend className="fieldset-legend">Login</legend>
 

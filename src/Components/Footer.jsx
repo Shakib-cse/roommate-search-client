@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
         
         <div className="text-center md:text-left">
-          <h2 className="text-xl font-semibold mb-2">SBox</h2>
+          <h2 className="text-xl font-semibold mb-2">Roommate Search</h2>
           <p className="text-sm">© {new Date().getFullYear()} All rights reserved.</p>
         </div>
 

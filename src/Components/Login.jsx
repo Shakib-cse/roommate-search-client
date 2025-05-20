@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthContext";
 
 const Login = () => {
-  const { singIn, googleLogin, logout, resetEmail } = use(AuthContext);
+  const { singIn, googleLogin } = use(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const emailRef = useRef();
@@ -18,19 +18,25 @@ const Login = () => {
 
     // login
     singIn(email, password)
-      .then((data) => {
-        if (!data.user.emailVerified) {
-          alert("Please verify your email before logging in.");
-          logout();
-          return;
+      .then(() => {
+        if (location.state) {
+          navigate(location.state);
         } else {
-          if (location.state) {
-            navigate(location.state);
-          } else {
-            navigate("/");
-          }
-          alert("Login successfully");
+          navigate("/");
         }
+        alert("Login successfully");
+        // if (!data.user.emailVerified) {
+        //   alert("Please verify your email before logging in.");
+        //   logout();
+        //   return;
+        // } else {
+        //   if (location.state) {
+        //     navigate(location.state);
+        //   } else {
+        //     navigate("/");
+        //   }
+        //   alert("Login successfully");
+        // }
       })
       .catch((error) => {
         alert(error.message);
@@ -54,18 +60,18 @@ const Login = () => {
   };
 
   //Forget
-  const handleForget = () => {
-    const email = emailRef.current.value;
-    resetEmail(email)
-    .then(()=>{
-      alert('Sent Reset Password Link in Your Email');
+  //   const handleForget = () => {
+  //     const email = emailRef.current.value;
+  //     resetEmail(email)
+  //     .then(()=>{
+  //       alert('Sent Reset Password Link in Your Email');
 
-    }).catch((error) => {
-            const errorMessage = error.message;
-            console.log(errorMessage);
-            
-          });
-  };
+  //     }).catch((error) => {
+  //             const errorMessage = error.message;
+  //             console.log(errorMessage);
+
+  //           });
+  //   };
 
   return (
     <div className="flex justify-center items-center py-3">
@@ -92,7 +98,9 @@ const Login = () => {
             required
           />
 
-          <div onClick={handleForget} className="text-right py-1 underline cursor-pointer">Forget Password</div>
+          <div className="text-right py-1 underline cursor-pointer">
+            Forget Password
+          </div>
 
           <button className="btn btn-neutral mt-4">Login</button>
         </form>

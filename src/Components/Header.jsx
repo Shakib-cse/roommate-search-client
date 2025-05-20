@@ -5,7 +5,7 @@ import { AuthContext } from "../Provider/AuthContext";
 import { use } from "react";
 
 const Header = () => {
-  //const { user, logout } = use(AuthContext);
+  const { user, logout } = use(AuthContext);
   const navigate = useNavigate();
 
   const logoutBtn = () => {
@@ -33,19 +33,6 @@ const Header = () => {
       <li>
         <Link to="/mylisting">My Listing</Link>
       </li>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
-      {/* {user && (
-        <li>
-          <Link to="/yourinfo">Your Info</Link>
-        </li>
-      )}
-      {!user && (
-        <li>
-          <Link to="/registration">Registration</Link>
-        </li>
-      )} */}
     </ul>
   );
   return (
@@ -83,15 +70,19 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         <div className="mr-2"><ThemeToggle /></div>
-        {/* {user ? (
+        {user ? (
           <a onClick={logoutBtn} className="btn">
             Logout
           </a>
         ) : (
-          <Link to="/login" className="btn">
+          <><Link to="/login" className="btn">
             Login
           </Link>
-        )} */}
+          <Link to="/register" className="btn ml-1">
+            Register
+          </Link>
+          </>
+        )}
       </div>
     </div>
   );

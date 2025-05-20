@@ -6,6 +6,7 @@ import BrowseListing from "../Components/BrowseListing";
 import MyListing from "../Components/MyListing";
 import Login from "../Components/Login";
 import Registration from "../Components/Registration";
+import PrivetRoute from "./PrivetRoute";
 
 
 let router = createBrowserRouter([
@@ -14,9 +15,9 @@ let router = createBrowserRouter([
         Component: HomeLayout,
         children: [
             {index: true, Component: Home},
-            {path: '/addtofindroommate', Component: AddFindRoommate},
+            {path: '/addtofindroommate', element: <PrivetRoute><AddFindRoommate/></PrivetRoute>},
             {path: '/browselisting', Component: BrowseListing},
-            {path: '/mylisting', Component: MyListing},
+            {path: '/mylisting', element: <PrivetRoute><MyListing/></PrivetRoute>},
             {path: '/login', Component: Login},
             {path: '/registration', Component: Registration},
         ]

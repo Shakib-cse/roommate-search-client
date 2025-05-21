@@ -11,6 +11,7 @@ import PrivetRoute from "./PrivetRoute";
 import TermsAndConditions from "../Components/TermsAndConditions";
 import FAQ from "../Components/FAQ";
 import PrivacyPolicy from "../Components/PrivacyPolicy";
+import PostsDetails from "../Components/PostsDetails";
 
 
 let router = createBrowserRouter([
@@ -24,6 +25,7 @@ let router = createBrowserRouter([
             {path: '/mylisting', element: <PrivetRoute><MyListing/></PrivetRoute>},
             {path: '/login', Component: Login},
             {path: '/registration', Component: Registration},
+            {path: '/posts/:id', element: <PrivetRoute><PostsDetails/></PrivetRoute>}
         ]
     },
     {

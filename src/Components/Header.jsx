@@ -39,6 +39,21 @@ const Header = () => {
       <li>
         <Link to="/mylisting">My Listing</Link>
       </li>
+              {user ? (
+            
+            <button onClick={logoutBtn} className="btn md:hidden">
+              Logout
+            </button>
+        ) : (
+          <div className="md:hidden">
+            <li><Link to="/login">
+              Login
+            </Link></li>
+            <li><Link to="/registration">
+              Register
+            </Link></li>
+          </div>
+        )}
     </ul>
   );
   return (
@@ -69,7 +84,7 @@ const Header = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Roommat Search</a>
+        <a className="btn btn-ghost text-xl"><img className="w-10 rounded-md" src="/public/logo.png" alt="" /> <span className="hidden md:block">Roommat Search</span></a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -80,24 +95,26 @@ const Header = () => {
         </div>
         {user ? (
           <>
-            <img
-              src="https://i.ibb.co/rL63m2v/0000052779.jpg"
+            <div className="tooltip tooltip-bottom z-10" data-tip={user.displayName}>
+              <img
+              src={user?.photoURL || 'https://i.ibb.co/gZptTbDQ/307ce493-b254-4b2d-8ba4-d12c080d6651.jpg'}
               alt="profile"
-              className="w-10 h-10 rounded-full mx-2"
+              className="w-10 h-10 rounded-full mx-2 tooltip tooltip-open tooltip-bottom"
             />
-            <button onClick={logoutBtn} className="btn">
+            </div>
+            <button onClick={logoutBtn} className="btn hidden md:block">
               Logout
             </button>
           </>
         ) : (
-          <>
+          <div className="hidden md:block">
             <Link to="/login" className="btn">
               Login
             </Link>
             <Link to="/registration" className="btn ml-1">
               Register
             </Link>
-          </>
+          </div>
         )}
       </div>
     </div>

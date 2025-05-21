@@ -40,11 +40,20 @@ const Login = () => {
         //   } else {
         //     navigate("/");
         //   }
-        //   alert("Login successfully");
+        //           Swal.fire({
+        //   title: "Login successfully",
+        //   icon: "success",
+        //   draggable: true,
+        // });
         // }
       })
       .catch((error) => {
-        alert(error.message);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.message,
+          footer: '<a href="#">Why do I have this issue?</a>',
+        });
       });
   };
 
@@ -57,10 +66,19 @@ const Login = () => {
         } else {
           navigate("/");
         }
-        alert("Login successfully");
+        Swal.fire({
+          title: "Login successfully",
+          icon: "success",
+          draggable: true,
+        });
       })
       .catch((error) => {
-        console.log(error.message);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.message,
+          footer: '<a href="#">Why do I have this issue?</a>',
+        });
       });
   };
 
@@ -73,7 +91,12 @@ const Login = () => {
 
   //     }).catch((error) => {
   //             const errorMessage = error.message;
-  //             console.log(errorMessage);
+  //                     Swal.fire({
+  //   icon: "error",
+  //   title: "Oops...",
+  //   text: error.message,
+  //   footer: '<a href="#">Why do I have this issue?</a>',
+  // });
 
   //           });
   //   };

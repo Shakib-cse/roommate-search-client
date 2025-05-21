@@ -27,7 +27,7 @@ const Registration = () => {
       if (!isValidA_Z) passwordErrors.push("at least one uppercase letter");
       if (!isValidDig) passwordErrors.push("at least one number");
 
-      setPasswordValid(passwordErrors.map(e => `• ${e}`).join("\n"));
+      setPasswordValid(passwordErrors.map((e) => `• ${e}`).join("\n"));
     }
   };
 
@@ -107,7 +107,12 @@ const Registration = () => {
         //     });
       })
       .catch((error) => {
-        alert(error.message);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.message,
+          footer: '<a href="#">Why do I have this issue?</a>',
+        });
       });
   };
 
@@ -120,10 +125,19 @@ const Registration = () => {
         } else {
           navigate("/");
         }
-        alert("Login successfully");
+        Swal.fire({
+          title: "Login successfully",
+          icon: "success",
+          draggable: true,
+        });
       })
       .catch((error) => {
-        console.log(error.message);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.message,
+          footer: '<a href="#">Why do I have this issue?</a>',
+        });
       });
   };
 
@@ -163,7 +177,9 @@ const Registration = () => {
             onChange={handleChange}
           />
 
-          <div className="text-warning whitespace-pre-line">{passwordValid}</div>
+          <div className="text-warning whitespace-pre-line">
+            {passwordValid}
+          </div>
 
           <button type="submit" className="btn btn-neutral mt-4">
             Registration

@@ -1,8 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import { AuthContext } from "../Provider/AuthContext";
 import { use } from "react";
 import Swal from "sweetalert2";
+import '../../src/App'
 
 const Header = () => {
   const { user, logout } = use(AuthContext);
@@ -28,32 +29,31 @@ const Header = () => {
   const links = (
     <ul className="p-2 lg:flex justify-center items-center gap-1">
       <li>
-        <Link to="/">Home</Link>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <Link to="/addtofindroommate">Add to Find Roommate</Link>
+        <NavLink to="/addtofindroommate">Add to Find Roommate</NavLink>
       </li>
       <li>
-        <Link to="/browselisting">Browse Listing</Link>
+        <NavLink to="/browselisting">Browse Listing</NavLink>
       </li>
       <li>
-        <Link to="/mylisting">My Listing</Link>
+        <NavLink to="/mylisting">My Listing</NavLink>
       </li>
-              {user ? (
-            
-            <button onClick={logoutBtn} className="btn md:hidden">
-              Logout
-            </button>
-        ) : (
-          <div className="md:hidden">
-            <li><Link to="/login">
-              Login
-            </Link></li>
-            <li><Link to="/registration">
-              Register
-            </Link></li>
-          </div>
-        )}
+      {user ? (
+        <button onClick={logoutBtn} className="btn md:hidden">
+          Logout
+        </button>
+      ) : (
+        <div className="md:hidden">
+          <li>
+            <NavLink to="/login">Login</NavLink>
+          </li>
+          <li>
+            <NavLink to="/registration">Register</NavLink>
+          </li>
+        </div>
+      )}
     </ul>
   );
   return (
@@ -84,7 +84,10 @@ const Header = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl"><img className="w-10 rounded-md" src="/public/logo.png" alt="" /> <span className="hidden md:block">Roommat Search</span></a>
+        <a className="btn btn-ghost text-xl">
+          <img className="w-10 rounded-md" src="/public/logo.png" alt="" />{" "}
+          <span className="hidden md:block">Roommat Search</span>
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -95,12 +98,23 @@ const Header = () => {
         </div>
         {user ? (
           <>
-            <div className="tooltip tooltip-bottom z-10" data-tip={user.displayName}>
+            <div
+              className="tooltip tooltip-bottom z-10"
+              data-tip={user?.displayName}
+            >
               <img
-              src={user?.photoURL || 'https://i.ibb.co/gZptTbDQ/307ce493-b254-4b2d-8ba4-d12c080d6651.jpg'}
-              alt="profile"
-              className="w-10 h-10 rounded-full mx-2 tooltip tooltip-open tooltip-bottom"
-            />
+                src={
+                  user?.photoURL ||
+                  "https://i.ibb.co/gZptTbDQ/307ce493-b254-4b2d-8ba4-d12c080d6651.jpg"
+                }
+                onError={(e) => {
+                  e.target.onerror = null; // Prevent infinite loop
+                  e.target.src =
+                    "https://i.ibb.co/gZptTbDQ/307ce493-b254-4b2d-8ba4-d12c080d6651.jpg";
+                }}
+                alt="profile"
+                className="w-10 h-10 rounded-full mx-2 tooltip tooltip-open tooltip-bottom"
+              />
             </div>
             <button onClick={logoutBtn} className="btn hidden md:block">
               Logout

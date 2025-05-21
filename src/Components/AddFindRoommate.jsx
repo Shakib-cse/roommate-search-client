@@ -1,8 +1,9 @@
-import { use, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthContext";
+import Swal from "sweetalert2";
 
 export default function AddFindRoommate() {
-    const {user} = use(AuthContext)
+  const { user } = use(AuthContext);
   const [formData, setFormData] = useState({
     title: "",
     location: "",
@@ -13,6 +14,10 @@ export default function AddFindRoommate() {
     contact: "",
     availability: "Available",
   });
+
+  useEffect(() => {
+    document.title = "Roommate Search | Register";
+  }, []);
 
   const userEmail = user?.email;
   const userName = user?.displayName || "User";
@@ -38,12 +43,39 @@ export default function AddFindRoommate() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Listing submitted:", {
+    const AllInfo = {
       ...formData,
       userEmail,
       userName,
-    });
-    // Add your backend API submission here
+    };
+    console.log(AllInfo);
+
+    //backend API submission here
+    fetch("http://localhost:3000/posts", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(AllInfo),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        Swal.fire({
+          title: "Post successfull",
+          icon: "success",
+          draggable: true,
+        });
+        setFormData({
+          title: "",
+          location: "",
+          rent: "",
+          roomType: "",
+          lifestyle: [],
+          description: "",
+          contact: "",
+          availability: "Available",
+        });
+      });
   };
 
   return (
@@ -161,7 +193,7 @@ export default function AddFindRoommate() {
 
       <button
         type="submit"
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg"
+        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg cursor-pointer"
       >
         Add Listing
       </button>

@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { use, useState } from "react";
 import { AuthContext } from "../Provider/AuthContext";
 import Swal from "sweetalert2";
 
@@ -14,10 +14,6 @@ export default function AddFindRoommate() {
     contact: "",
     availability: "Available",
   });
-
-  useEffect(() => {
-    document.title = "Roommate Search | Register";
-  }, []);
 
   const userEmail = user?.email;
   const userName = user?.displayName || "User";

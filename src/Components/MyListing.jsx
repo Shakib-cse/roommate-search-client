@@ -64,7 +64,6 @@ export default function MyListing() {
       name: form.name.value,
       email: form.email.value,
     };
-    console.log(updatedPost);
 
     fetch(`http://localhost:3000/posts/${editingPost._id}`, {
       method: "PATCH",

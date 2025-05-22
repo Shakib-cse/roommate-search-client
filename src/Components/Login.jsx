@@ -1,10 +1,12 @@
-import React, { use, useRef } from "react";
+import React, { use, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthContext";
 import Swal from "sweetalert2";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const { singIn, googleLogin } = use(AuthContext);
+  const [password, setPassword] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
   const emailRef = useRef();
@@ -118,13 +120,16 @@ const Login = () => {
           />
 
           <label className="label">Password</label>
-          <input
-            type="password"
+          <span className="relative w-full">
+            <input
+            type={password ? 'password' : 'text'}
             className="input"
             placeholder="Password"
             name="password"
             required
           />
+          <span onClick={()=>setPassword(!password)} className="absolute right-2 cursor-pointer top-1 z-10">{password ? <FaEye /> : <FaEyeSlash />}</span>
+          </span>
 
           <div className="text-right py-1 underline cursor-pointer">
             Forget Password

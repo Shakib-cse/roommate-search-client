@@ -2,11 +2,13 @@ import React, { use, useState } from "react";
 import { AuthContext } from "../Provider/AuthContext";
 import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Registration = () => {
   const { createSingIn, logout, googleLogin, updateUser } = use(AuthContext);
 
   const [error, setError] = useState("");
+  const [password, setPassword] = useState(true);
   const [passwordValid, setPasswordValid] = useState([]);
 
   const navigate = useNavigate();
@@ -169,13 +171,16 @@ const Registration = () => {
           />
 
           <label className="label">Password</label>
-          <input
-            type="password"
+          <span className="relative w-full">
+            <input
+            type={password ? "password" : "text"}
             className="input"
             placeholder="Password"
             name="password"
             onChange={handleChange}
           />
+          <span onClick={()=>setPassword(!password)} className="absolute right-2 cursor-pointer top-1 z-10">{password ? <FaEye /> : <FaEyeSlash />}</span>
+          </span>
 
           <div className="text-warning whitespace-pre-line">
             {passwordValid}

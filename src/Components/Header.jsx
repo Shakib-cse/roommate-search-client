@@ -85,7 +85,7 @@ const Header = () => {
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">
-          <img className="w-10 rounded-md" src="/public/logo.png" alt="" />{" "}
+          <img className="w-10 rounded-md" src="/logo.png" alt="" />{" "}
           <span className="hidden md:block">Roommat Search</span>
         </a>
       </div>

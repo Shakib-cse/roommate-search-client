@@ -1,5 +1,7 @@
 # Logs
 logs
+src/Firebase/firebase.config.js
+src/Firebase/*
 src/Firebase*
 *.log
 npm-debug.log*

@@ -1,20 +1,7 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
 
 
-
-# 🏠 Roommate Finder
+# 🏠 Roommate Search
 
 Roommate Finder is a modern and responsive web application built to help individuals find compatible roommates and suitable living arrangements. It provides a platform where users can post, browse, and connect over shared housing needs.
 
@@ -24,53 +11,24 @@ Roommate Finder is a modern and responsive web application built to help individ
 
 ---
 
-## 🚀 Features
+🌐 Website Name: Roommate Finder
 
-- 🔐 **User Authentication**  
-  Firebase Authentication (Email/Password) for secure login and registration.
+🔗 Live Site URL: https://your-roommate-finder-site.web.app (replace with your actual URL)
 
-- 🏠 **Create & Manage Listings**  
-  Users can post rooms or roommate needs, and later update or delete them.
+🚀 Key Features:
 
-- 📸 **Animated Hero Banner**  
-  Beautiful banner with Swiper slider and synced React Simple Typewriter animation.
+🔍 Smart Roommate Listings: Users can post and browse roommate ads with detailed preferences like budget, gender, and location.
 
-- 💬 **User Information**  
-  Listings show user details, lifestyle preferences, and contact info.
+🖊️ Edit Posts with Update Modal: Users can edit their listings directly from the My Listings page via an intuitive modal interface.
 
-- 🌐 **Responsive Design**  
-  Mobile-first layout using Tailwind CSS and DaisyUI.
+🔐 Firebase Authentication: Secure login and registration system using Firebase Authentication.
 
-- 🎯 **Dashboard Icons**  
-  Post count, matches, and feedback icons with unique hover effects.
+📸 Swiper Banners & Lottie Animations: Engaging UI using Swiper.js for featured sections and Lottie animations for dynamic visuals.
 
-- 🎥 **Animations**  
-  - Lottie (via `lottie-react`) for visual animations  
-  - React Awesome Reveal for fade effects  
-  - React Simple Typewriter for typing text  
-  - React Tooltip for hover tips
+🛠️ Responsive UI with Tailwind & DaisyUI: Fully responsive and mobile-friendly design with modern styling tools.
 
-- 🔍 **Filter/Search (Planned)**  
-  Optional filtering by location, room type, rent, etc.
+📄 Privacy Policy, Terms & FAQ Pages: Professionally written legal and support content for user trust and transparency.
 
----
-
-## 🛠️ Tech Stack
-
-| Technology | Usage |
-|------------|--------|
-| React & Vite | Frontend Framework |
-| Tailwind CSS | Styling |
-| DaisyUI | UI Components |
-| Firebase | Authentication & Backend |
-| Swiper.js | Image Slider |
-| Lottie | Animations |
-| React Tooltip | Tooltips |
-| React Simple Typewriter | Typing Animation |
-| React Awesome Reveal | Entry Animations |
-
----
-
-## 📂 Project Structure
+🎯 Search & Filter Functionality: Efficient filtering to help users find the most compatible roommate listings.
 
 

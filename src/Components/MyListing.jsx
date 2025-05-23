@@ -132,7 +132,6 @@ export default function MyListing() {
                     <button
                       onClick={() => {
                         setEditingPost(post);
-                        console.log(post);
                       }}
                       className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 cursor-pointer"
                     >

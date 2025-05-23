@@ -15,7 +15,6 @@ const Registration = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
 
     if (name === "password") {
       // Check for at least one lowercase, one uppercase, and one number
@@ -45,7 +44,6 @@ const Registration = () => {
     const password = formData.get("password");
     const PhotoUrl = formData.get("Photourl");
 
-    console.log(email, password);
 
     if (password.length < 6) {
       setError("Password must be 6 characters long");
@@ -91,8 +89,7 @@ const Registration = () => {
           body: JSON.stringify(userAllData),
         })
           .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
+          .then(() => {
           });
 
         //Send verification email

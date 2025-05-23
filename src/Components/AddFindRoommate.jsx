@@ -45,7 +45,6 @@ export default function AddFindRoommate() {
       userEmail,
       userName,
     };
-    console.log(AllInfo);
 
     //backend API submission here
     fetch("https://roommate-search-server.vercel.app/posts", {

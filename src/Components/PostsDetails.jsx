@@ -10,7 +10,7 @@ export default function PostsDetails() {
   const [post, setPost] = useState(null);
   const [likeCount, setLikeCount] = useState(0);
   const [showContact, setShowContact] = useState(false);
-  const [liked, setLiked] = useState(false);
+  //const [liked, setLiked] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,17 +28,21 @@ export default function PostsDetails() {
   }, [id]);
 
   const handleLike = () => {
-    if (liked) return;
     if (user.email === post.userEmail) {
       Swal.fire("You can't like your own post");
       return;
     }
-    const newLikeCount = likeCount + 1;
-    setLikeCount(newLikeCount);
-    setShowContact(true);
-    setLiked(true);
 
-    // Optional: Update like count in backend
+      const newLikeCount = likeCount + 1;
+  setLikeCount(newLikeCount);
+  setShowContact(true);
+    
+    // const newLikeCount = likeCount + 1;
+    // setLikeCount(newLikeCount);
+    // setShowContact(true);
+    // setLiked(true);
+
+    // Update the like count on the server
     fetch(`https://roommate-search-server.vercel.app/posts/${id}/like`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
@@ -84,7 +88,7 @@ export default function PostsDetails() {
       </div>
 
       <div className="mt-6">
-        <button
+        {/* <button
           onClick={handleLike}
           disabled={liked}
           className={`px-6 py-2 rounded-lg font-semibold text-white ${
@@ -94,6 +98,13 @@ export default function PostsDetails() {
           }`}
         >
           {liked ? "Liked" : "Like"}
+        </button> */}
+        <button
+          onClick={handleLike}
+          //disabled={liked}
+          className={'px-6 py-2 rounded-lg font-semibold text-white bg-green-600 hover:bg-green-700 cursor-pointer'}
+        >
+          Like
         </button>
 
         {showContact && (

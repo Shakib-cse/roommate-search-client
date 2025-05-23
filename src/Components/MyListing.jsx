@@ -119,7 +119,7 @@ export default function MyListing() {
                   <td className="px-4 py-3">{post.rent} tk.</td>
                   <td className="px-4 py-3">
                     <span
-                      className={`px-3 py-1 rounded-full text-xs font-semibold flex ${
+                      className={`px-3 py-1 rounded-full text-xs font-semibold flex justify-center items-center ${
                         post.availability === "Available"
                           ? "bg-green-100 text-green-600"
                           : "bg-red-100 text-red-600"

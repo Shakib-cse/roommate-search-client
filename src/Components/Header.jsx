@@ -3,7 +3,8 @@ import ThemeToggle from "./ThemeToggle";
 import { AuthContext } from "../Provider/AuthContext";
 import { use } from "react";
 import Swal from "sweetalert2";
-import '../../src/App'
+import "../../src/App";
+import { Typewriter } from "react-simple-typewriter";
 
 const Header = () => {
   const { user, logout } = use(AuthContext);
@@ -86,7 +87,16 @@ const Header = () => {
         </div>
         <a className="btn btn-ghost text-xl">
           <img className="w-10 rounded-md" src="/logo.png" alt="" />{" "}
-          <span className="hidden md:block">Roommat Search</span>
+          <span className="hidden md:block">
+            {" "}
+            <Typewriter
+              words={["Roommate Search"]}
+              loop={true}
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={20000}
+            />
+          </span>
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -108,7 +118,7 @@ const Header = () => {
                   "https://i.ibb.co/gZptTbDQ/307ce493-b254-4b2d-8ba4-d12c080d6651.jpg"
                 }
                 onError={(e) => {
-                  e.target.onerror = null; // Prevent infinite loop
+                  e.target.onerror = null;
                   e.target.src =
                     "https://i.ibb.co/gZptTbDQ/307ce493-b254-4b2d-8ba4-d12c080d6651.jpg";
                 }}

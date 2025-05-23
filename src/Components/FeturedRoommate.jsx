@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Fade, Zoom } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
 const FeturedRoommate = () => {
@@ -18,11 +19,13 @@ const FeturedRoommate = () => {
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           {featuredPosts.map((post) => (
-            <div
+            <Zoom>
+              <div
               key={post._id}
               className="bg-base-200 p-4 rounded-xl shadow-lg space-y-2"
             >
-              <h3 className="text-xl font-semibold">{post.title}</h3>
+              <Fade>
+                <h3 className="text-xl font-semibold">{post.title}</h3>
               <p>
                 <strong>Location:</strong> {post.location}
               </p>
@@ -35,6 +38,7 @@ const FeturedRoommate = () => {
               <p>
                 <strong>Availability:</strong> {post.availability}
               </p>
+              </Fade>
               <Link
                 to={`/posts/${post._id}`}
                 className="inline-block mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
@@ -42,6 +46,7 @@ const FeturedRoommate = () => {
                 See More
               </Link>
             </div>
+            </Zoom>
           ))}
         </div>
       </section>

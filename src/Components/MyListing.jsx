@@ -94,7 +94,7 @@ export default function MyListing() {
         </p>
       ) : (
         <div className="overflow-x-auto bg-base-200 rounded-xl shadow">
-          <table className="min-w-full divide-y divide-gray-200 text-sm sm:text-base">
+          <table className="min-w-full divide-y divide-gray-200 text-sm sm:text-base text-center">
             <thead className="bg-base-300">
               <tr>
                 <th className="px-4 py-3">Title</th>
@@ -109,7 +109,7 @@ export default function MyListing() {
                 <tr key={post._id} className="hover:bg-base-100">
                   <td className="px-4 py-3">{post.title}</td>
                   <td className="px-4 py-3">{post.userEmail}</td>
-                  <td className="px-4 py-3">${post.rent}</td>
+                  <td className="px-4 py-3">{post.rent} tk.</td>
                   <td className="px-4 py-3">
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-semibold ${

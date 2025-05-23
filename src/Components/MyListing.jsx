@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthContext";
 import Swal from "sweetalert2";
-import "../../src/App"; // optional if using your own fadein animation
+import "../../src/App"; 
+import { Fade, Zoom } from "react-awesome-reveal";
 
 export default function MyListing() {
   const { user } = useContext(AuthContext);
@@ -12,7 +13,9 @@ export default function MyListing() {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/my-posts?email=${user.email}`)
+      fetch(
+        `https://roommate-search-server.vercel.app/my-posts?email=${user.email}`
+      )
         .then((res) => res.json())
         .then((data) => setMyPosts(data));
     }
@@ -27,7 +30,7 @@ export default function MyListing() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/posts/${id}`, {
+        fetch(`https://roommate-search-server.vercel.app/posts/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -65,11 +68,14 @@ export default function MyListing() {
       email: form.email.value,
     };
 
-    fetch(`http://localhost:3000/posts/${editingPost._id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updatedPost),
-    })
+    fetch(
+      `https://roommate-search-server.vercel.app/posts/${editingPost._id}`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedPost),
+      }
+    )
       .then((res) => res.json())
       .then(() => {
         Swal.fire("Updated!", "Your listing has been updated.", "success");
@@ -93,7 +99,8 @@ export default function MyListing() {
           You haven't added any listings yet.
         </p>
       ) : (
-        <div className="overflow-x-auto bg-base-200 rounded-xl shadow">
+          <Fade cascade damping={0.1}>
+            <div className="overflow-x-auto bg-base-200 rounded-xl shadow">
           <table className="min-w-full divide-y divide-gray-200 text-sm sm:text-base text-center">
             <thead className="bg-base-300">
               <tr>
@@ -112,7 +119,7 @@ export default function MyListing() {
                   <td className="px-4 py-3">{post.rent} tk.</td>
                   <td className="px-4 py-3">
                     <span
-                      className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                      className={`px-3 py-1 rounded-full text-xs font-semibold flex ${
                         post.availability === "Available"
                           ? "bg-green-100 text-green-600"
                           : "bg-red-100 text-red-600"
@@ -124,7 +131,7 @@ export default function MyListing() {
                   <td className="px-4 py-3 flex flex-col sm:flex-row gap-2">
                     <button
                       onClick={() => {
-                        setEditingPost(post)
+                        setEditingPost(post);
                         console.log(post);
                       }}
                       className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 cursor-pointer"
@@ -143,6 +150,7 @@ export default function MyListing() {
             </tbody>
           </table>
         </div>
+          </Fade>
       )}
 
       {/* 🚀 Update Modal with smooth animation */}

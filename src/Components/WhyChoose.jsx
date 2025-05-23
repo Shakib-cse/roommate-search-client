@@ -1,10 +1,10 @@
 import React from "react";
-import { Fade, Zoom } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 
 const WhyChoose = () => {
   return (
     <div>
-      <Zoom><section className="w-11/12 mx-auto my-12 bg-base-300 p-6 rounded-xl">
+      <section className="w-11/12 mx-auto my-12 bg-base-300 p-6 rounded-xl">
         <h2 className="text-2xl font-bold text-center mb-4">
           Why Choose Roommate Search?
         </h2>
@@ -16,7 +16,7 @@ const WhyChoose = () => {
           <li>✅ Safe and Community-Driven</li>
         </ul>
         </Fade>
-      </section></Zoom>
+      </section>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import { AuthContext } from "../Provider/AuthContext";
 import Swal from "sweetalert2";
 
 export default function PostsDetails() {
-    const {user} = use(AuthContext);
+  const { user } = use(AuthContext);
   const { id } = useParams();
   const [post, setPost] = useState(null);
   const [likeCount, setLikeCount] = useState(0);
@@ -14,7 +14,7 @@ export default function PostsDetails() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/posts/${id}`)
+    fetch(`https://roommate-search-server.vercel.app/posts/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setPost(data);
@@ -29,9 +29,9 @@ export default function PostsDetails() {
 
   const handleLike = () => {
     if (liked) return;
-    if (user.email === post.userEmail){
-        Swal.fire("You can't like your own post");
-        return;
+    if (user.email === post.userEmail) {
+      Swal.fire("You can't like your own post");
+      return;
     }
     const newLikeCount = likeCount + 1;
     setLikeCount(newLikeCount);
@@ -39,15 +39,15 @@ export default function PostsDetails() {
     setLiked(true);
 
     // Optional: Update like count in backend
-    fetch(`http://localhost:3000/posts/${id}/like`, {
+    fetch(`https://roommate-search-server.vercel.app/posts/${id}/like`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ likeCount: newLikeCount }),
     }).catch((err) => console.error("Failed to update like count:", err));
   };
 
-  if (loading) return <Loading/>;
-  if (!post) return <Loading/>;
+  if (loading) return <Loading />;
+  if (!post) return <Loading />;
 
   return (
     <div className="w-11/12 mx-auto p-6 my-10 bg-base-200 rounded-xl shadow">
@@ -58,12 +58,25 @@ export default function PostsDetails() {
       </p>
 
       <div className="space-y-2">
-        <p><strong>Posted by:</strong> {post.userName} ({post.userEmail})</p>
-        <p><strong>Location:</strong> {post.location}</p>
-        <p><strong>Rent:</strong> ${post.rent}</p>
-        <p><strong>Room Type:</strong> {post.roomType}</p>
-        <p><strong>Availability:</strong> {post.availability}</p>
-        <p><strong>Lifestyle Preferences:</strong> {post.lifestyle?.join(", ") || "None"}</p>
+        <p>
+          <strong>Posted by:</strong> {post.userName} ({post.userEmail})
+        </p>
+        <p>
+          <strong>Location:</strong> {post.location}
+        </p>
+        <p>
+          <strong>Rent:</strong> ${post.rent}
+        </p>
+        <p>
+          <strong>Room Type:</strong> {post.roomType}
+        </p>
+        <p>
+          <strong>Availability:</strong> {post.availability}
+        </p>
+        <p>
+          <strong>Lifestyle Preferences:</strong>{" "}
+          {post.lifestyle?.join(", ") || "None"}
+        </p>
         <div>
           <strong>Description:</strong>
           <p className="mt-1">{post.description}</p>
@@ -75,17 +88,20 @@ export default function PostsDetails() {
           onClick={handleLike}
           disabled={liked}
           className={`px-6 py-2 rounded-lg font-semibold text-white ${
-            liked ? "bg-gray-500 cursor-not-allowed" : "bg-green-600 hover:bg-green-700 cursor-pointer"
+            liked
+              ? "bg-gray-500 cursor-not-allowed"
+              : "bg-green-600 hover:bg-green-700 cursor-pointer"
           }`}
         >
           {liked ? "Liked" : "Like"}
         </button>
 
         {showContact && (
-          <div className="mt-4 text-lg text-red-500">📞 Contact: 
+          <div className="mt-4 text-lg text-red-500">
+            📞 Contact:
             <a href="tel:" className="underline ml-2">
-               {post.contact}
-          </a>
+              {post.contact}
+            </a>
           </div>
         )}
       </div>

@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   const links = (
-    <ul className="p-2 lg:flex justify-center items-center gap-1">
+    <ul className="p-2 lg:flex justify-center items-center gap-1 font-bold">
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
@@ -85,7 +85,7 @@ const Header = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">
+        <Link to='/' className="btn btn-ghost text-xl">
           <img className="w-10 rounded-md" src="/logo.png" alt="" />{" "}
           <span className="hidden md:block">
             {" "}
@@ -97,7 +97,7 @@ const Header = () => {
               delaySpeed={20000}
             />
           </span>
-        </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>

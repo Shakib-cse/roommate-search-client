@@ -83,7 +83,7 @@ const Registration = () => {
         const lastSignInTime = userCredential?.user?.metadata?.lastSignInTime;
 
         const userAllData = { ...userData, creationTime, lastSignInTime };
-        fetch("http://localhost:3000/users", {
+        fetch("https://roommate-search-server.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -173,13 +173,18 @@ const Registration = () => {
           <label className="label">Password</label>
           <span className="relative w-full">
             <input
-            type={password ? "password" : "text"}
-            className="input"
-            placeholder="Password"
-            name="password"
-            onChange={handleChange}
-          />
-          <span onClick={()=>setPassword(!password)} className="absolute right-2 cursor-pointer top-1 z-10">{password ? <FaEye /> : <FaEyeSlash />}</span>
+              type={password ? "password" : "text"}
+              className="input"
+              placeholder="Password"
+              name="password"
+              onChange={handleChange}
+            />
+            <span
+              onClick={() => setPassword(!password)}
+              className="absolute right-2 cursor-pointer top-1 z-10"
+            >
+              {password ? <FaEye /> : <FaEyeSlash />}
+            </span>
           </span>
 
           <div className="text-warning whitespace-pre-line">

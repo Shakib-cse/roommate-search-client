@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loading from "./Loading";
+import { Fade, Zoom } from "react-awesome-reveal";
 
 export default function BrowseListing() {
   const [listings, setListings] = useState([]);
-   const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/posts")
+    fetch("https://roommate-search-server.vercel.app/posts")
       .then((res) => res.json())
       .then((data) => {
-        setListings(data)
-        setLoading(false)
+        setListings(data);
+        setLoading(false);
       })
       .catch((err) => console.error("Failed to fetch listings:", err));
-      setLoading(false)
+    setLoading(false);
   }, []);
 
-    if (loading) return <Loading/>;
-  if (!listings) return <Loading/>;
+  if (loading) return <Loading />;
+  if (!listings) return <Loading />;
 
   return (
     <div className="w-11/12 max-w-6xl mx-auto my-10 space-y-6">
@@ -28,18 +29,16 @@ export default function BrowseListing() {
 
       <div className="grid gap-6 md:grid-cols-2">
         {listings.map((post) => (
-          <div
+          <Zoom>
+              <div
             key={post._id}
             className="bg-base-200 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all"
           >
+            <Fade cascade damping={0.1}>
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h3 className="text-xl font-bold text-primary">
-                  {post.title}
-                </h3>
-                <p className="text-sm text-gray-500">
-                  📍 {post.location}
-                </p>
+                <h3 className="text-xl font-bold text-primary">{post.title}</h3>
+                <p className="text-sm text-gray-500">📍 {post.location}</p>
               </div>
               <span
                 className={`text-sm font-semibold px-3 py-1 rounded-full ${
@@ -51,13 +50,25 @@ export default function BrowseListing() {
                 {post.availability}
               </span>
             </div>
+            </Fade>
 
             <div className="space-y-1 text-base">
-              <p><strong>💰 Rent:</strong> ${post.rent}</p>
-              <p><strong>🛏️ Room Type:</strong> {post.roomType}</p>
-              <p><strong>📞 Contact:</strong> {post.contact}</p>
-              <p><strong>🧬 Lifestyle:</strong> {post.lifestyle?.join(", ") || "N/A"}</p>
-              <p className="line-clamp-3"><strong>📝 Description:</strong> {post.description}</p>
+              <p>
+                <strong>💰 Rent:</strong> ${post.rent}
+              </p>
+              <p>
+                <strong>🛏️ Room Type:</strong> {post.roomType}
+              </p>
+              <p>
+                <strong>📞 Contact:</strong> {post.contact}
+              </p>
+              <p>
+                <strong>🧬 Lifestyle:</strong>{" "}
+                {post.lifestyle?.join(", ") || "N/A"}
+              </p>
+              <p className="line-clamp-3">
+                <strong>📝 Description:</strong> {post.description}
+              </p>
             </div>
 
             <div className="mt-4 text-right">
@@ -69,6 +80,7 @@ export default function BrowseListing() {
               </Link>
             </div>
           </div>
+          </Zoom>
         ))}
       </div>
     </div>

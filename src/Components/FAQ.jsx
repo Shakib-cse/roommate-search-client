@@ -6,7 +6,7 @@ const FAQ = () => {
     <div>
       <header><Header /></header>
 
-      <main className="w-11/12 mx-auto">
+      <main className="w-11/12 mx-auto py-20">
         <h1 className="text-3xl font-bold text-center my-8">Frequently Asked Questions</h1>
 
         <div className="max-w-3xl mx-auto space-y-4 h-60">

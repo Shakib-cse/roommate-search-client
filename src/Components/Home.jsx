@@ -1,5 +1,5 @@
 
-import { Zoom } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 import Banner from "./Banner";
 import Counter from "./Counter";
 import FeturedRoommate from "./FeturedRoommate";
@@ -11,7 +11,7 @@ const Home = () => {
       <Banner />
       <main>
         <FeturedRoommate/>
-        <Zoom><Counter/></Zoom>
+        <Fade><Counter/></Fade>
         <WhyChoose/>
       </main>
     </div>

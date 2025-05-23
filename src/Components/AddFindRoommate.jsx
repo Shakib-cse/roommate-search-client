@@ -1,6 +1,7 @@
 import { use, useState } from "react";
 import { AuthContext } from "../Provider/AuthContext";
 import Swal from "sweetalert2";
+import { Fade } from "react-awesome-reveal";
 
 export default function AddFindRoommate() {
   const { user } = use(AuthContext);
@@ -47,7 +48,7 @@ export default function AddFindRoommate() {
     console.log(AllInfo);
 
     //backend API submission here
-    fetch("http://localhost:3000/posts", {
+    fetch("https://roommate-search-server.vercel.app/posts", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -75,7 +76,8 @@ export default function AddFindRoommate() {
   };
 
   return (
-    <form
+    <Fade>
+      <form
       onSubmit={handleSubmit}
       className="w-11/12 mx-auto p-6 bg-base-300 rounded-2xl shadow-lg space-y-4 my-10"
     >
@@ -194,5 +196,6 @@ export default function AddFindRoommate() {
         Add Listing
       </button>
     </form>
+    </Fade>
   );
 }

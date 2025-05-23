@@ -7,7 +7,7 @@ const TermsAndConditions = () => {
         <header>
             <Header/>
         </header>
-<main className=" w-11/12 mx-auto">
+<main className=" w-11/12 mx-auto py-20">
           <h1 className="text-3xl font-bold mb-4 py-5">Terms & Conditions</h1>
       <p className="mb-4">
         By using Roommate Finder, you agree to the following terms and conditions.

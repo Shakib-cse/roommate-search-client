@@ -1,5 +1,10 @@
 .active{
-    text-decoration: underline;
+    background: rgb(131, 131, 204);
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.active:hover{
+  background: rgb(96, 96, 219);
 }
 
 @keyframes fadeIn {

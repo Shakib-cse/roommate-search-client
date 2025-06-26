@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { AuthContext } from "./AuthContext";
 import app from '../Firebase/firebase.config';
 
@@ -32,9 +32,9 @@ const singIn = (email, password) => {
 
 
   //sendPasswordResetEmail
-//   const resetEmail = (email) => {
-//     return sendPasswordResetEmail(auth, email);
-//   }
+  const resetEmail = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  }
 
 
 //google sing in
@@ -69,6 +69,7 @@ const authData = {
     setUser,
     singIn,
     logout,
+    resetEmail,
     googleLogin,
     updateUser
 }

@@ -3,6 +3,7 @@ import { AuthContext } from "../Provider/AuthContext";
 import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { sendEmailVerification } from "firebase/auth";
 
 const Registration = () => {
   const { createSingIn, logout, googleLogin, updateUser } = use(AuthContext);
@@ -56,7 +57,8 @@ const Registration = () => {
     createSingIn(email, password)
       .then((userCredential) => {
         Swal.fire({
-          title: "Registration successfully",
+          title: "Verification Email Sent",
+          text: "Please check your email to verify your account.",
           icon: "success",
           draggable: true,
         });
@@ -93,17 +95,16 @@ const Registration = () => {
           });
 
         //Send verification email
-        //   sendEmailVerification(userCredential.user)
-        //     .then(() => {
-        //       alert('Verification email sent. Please check your inbox.');
-        //       // Logout to prevent auto login before email is verified
-        //       logout().then(() => {
-        //         navigate('/login');
-        //       });
-        //     })
-        //     .catch(() => {
-        //       setError('Failed to send verification email');
-        //     });
+          sendEmailVerification(userCredential.user)
+            .then(() => {
+              // Logout to prevent auto login before email is verified
+              logout().then(() => {
+                navigate('/login');
+              });
+            })
+            .catch(() => {
+              setError('Failed to send verification email');
+            });
       })
       .catch((error) => {
         Swal.fire({
@@ -141,7 +142,7 @@ const Registration = () => {
   };
 
   return (
-    <div className="flex justify-center items-center py-3 w-11/12 mx-auto">
+    <div className="flex justify-center items-center py-3 w-11/12 mx-auto my-30">
       <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
         <legend className="fieldset-legend">Registration</legend>
 

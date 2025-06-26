@@ -89,7 +89,7 @@ export default function MyListing() {
   };
 
   return (
-    <section className="w-11/12 max-w-6xl mx-auto my-10">
+    <section className="w-11/12 max-w-6xl mx-auto my-30">
       <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">
         📋 My Listings
       </h2>

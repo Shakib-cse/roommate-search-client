@@ -12,6 +12,7 @@ import TermsAndConditions from "../Components/TermsAndConditions";
 import FAQ from "../Components/FAQ";
 import PrivacyPolicy from "../Components/PrivacyPolicy";
 import PostsDetails from "../Components/PostsDetails";
+import Contact from "../Components/Contact";
 
 
 let router = createBrowserRouter([
@@ -25,7 +26,8 @@ let router = createBrowserRouter([
             {path: '/mylisting', element: <PrivetRoute><MyListing/></PrivetRoute>},
             {path: '/login', Component: Login},
             {path: '/registration', Component: Registration},
-            {path: '/posts/:id', element: <PrivetRoute><PostsDetails/></PrivetRoute>}
+            {path: '/posts/:id', element: <PrivetRoute><PostsDetails/></PrivetRoute>},
+            {path: '/contact', Component: Contact}
         ]
     },
     {

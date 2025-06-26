@@ -78,7 +78,7 @@ export default function AddFindRoommate() {
     <Fade>
       <form
       onSubmit={handleSubmit}
-      className="w-11/12 mx-auto p-6 bg-base-300 rounded-2xl shadow-lg space-y-4 my-10"
+      className="w-11/12 mx-auto p-6 bg-base-300 rounded-2xl shadow-lg space-y-4 my-30"
     >
       <h2 className="text-2xl font-bold text-center">Add a New Listing</h2>
 

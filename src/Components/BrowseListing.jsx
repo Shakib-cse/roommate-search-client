@@ -22,7 +22,7 @@ export default function BrowseListing() {
   if (!listings) return <Loading />;
 
   return (
-    <div className="w-11/12 max-w-6xl mx-auto my-10 space-y-6">
+    <div className="w-11/12 max-w-6xl mx-auto my-30 space-y-6">
       <h2 className="text-4xl font-bold text-center text-primary mb-10">
         🏘️ Roommate Finder Posts
       </h2>

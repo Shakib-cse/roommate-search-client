@@ -57,7 +57,7 @@ const Header = () => {
             <Link className='bg-green-600 hover:bg-green-700' to="/login">Login</Link>
           </li>
           <li>
-            <Link className="bg-green-600 hover:bg-green-700" to="/registration">Register</Link>
+            <Link className="bg-green-600 hover:bg-green-700" to="/registration">Registration</Link>
           </li>
         </div>
       )}
@@ -142,7 +142,7 @@ const Header = () => {
               Login
             </Link>
             <Link to="/registration" className="btn ml-1 bg-green-600 hover:bg-green-700">
-              Register
+              Registration
             </Link>
           </div>
         )}

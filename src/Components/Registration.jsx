@@ -131,14 +131,6 @@ const Registration = () => {
           draggable: true,
         });
       })
-      .catch((error) => {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: error.message,
-          footer: '<a href="#">Why do I have this issue?</a>',
-        });
-      });
   };
 
   return (

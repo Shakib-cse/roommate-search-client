@@ -1,34 +1,37 @@
-
-
-
 # 🏠 Roommate Search
 
-Roommate Finder is a modern and responsive web application built to help individuals find compatible roommates and suitable living arrangements. It provides a platform where users can post, browse, and connect over shared housing needs.
-
-## 🔑 Live Preview
-
-[🔗 Live Demo](#) *(https://roommate-search-cea35.web.app/)*
+A modern, responsive web application that helps users find and post shared room or roommate listings with ease. Built using **React**, **Tailwind CSS**, and **Firebase Authentication**, it offers a smooth and user-friendly experience for anyone looking to find or offer a shared living space.
 
 ---
 
-🌐 Website Name: Roommate Finder
+## 🔗 Live Website
 
-🔗 Live Site URL: https://your-roommate-finder-site.web.app (replace with your actual URL)
+👉 [Visit Roommate Search](https://roommate-search-cea35.web.app/)
 
-🚀 Key Features:
+---
 
-🔍 Smart Roommate Listings: Users can post and browse roommate ads with detailed preferences like budget, gender, and location.
+## 🎯 Features
 
-🖊️ Edit Posts with Update Modal: Users can edit their listings directly from the My Listings page via an intuitive modal interface.
+- ✅ **User Authentication** (Email/Password & Google) via Firebase
+- 📝 **Post Listings** with title, rent, location, room type, availability, and more
+- 🧑‍💼 **My Listings** dashboard to manage user-submitted posts
+- 📋 **View All Posts** from all users in a card layout
+- 📍 **Search by Location and Room Type** *(optional)*
+- 🔒 **Private Routes** for dashboard functionalities
+- 🌐 **Responsive Design** (Mobile, Tablet & Desktop)
+- 📄 **Terms & Conditions**, **Privacy Policy**, **FAQ**, and **Blog** pages
 
-🔐 Firebase Authentication: Secure login and registration system using Firebase Authentication.
+---
 
-📸 Swiper Banners & Lottie Animations: Engaging UI using Swiper.js for featured sections and Lottie animations for dynamic visuals.
+## ⚙️ Technologies Used
 
-🛠️ Responsive UI with Tailwind & DaisyUI: Fully responsive and mobile-friendly design with modern styling tools.
+| Frontend        | Backend/API     | Others               |
+|-----------------|-----------------|----------------------|
+| React           | Express.js      | Firebase Auth        |
+| React Router    | MongoDB         | Vercel Deployment    |
+| Tailwind CSS    | Node.js         | DaisyUI & Toastify   |
 
-📄 Privacy Policy, Terms & FAQ Pages: Professionally written legal and support content for user trust and transparency.
+---
 
-🎯 Search & Filter Functionality: Efficient filtering to help users find the most compatible roommate listings.
-
+## 📁 Folder Structure
 

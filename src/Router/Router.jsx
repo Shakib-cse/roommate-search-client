@@ -13,6 +13,7 @@ import FAQ from "../Components/FAQ";
 import PrivacyPolicy from "../Components/PrivacyPolicy";
 import PostsDetails from "../Components/PostsDetails";
 import Contact from "../Components/Contact";
+import DashboardPage from "../Components/Dashboard";
 
 
 let router = createBrowserRouter([
@@ -27,7 +28,8 @@ let router = createBrowserRouter([
             {path: '/login', Component: Login},
             {path: '/registration', Component: Registration},
             {path: '/posts/:id', element: <PrivetRoute><PostsDetails/></PrivetRoute>},
-            {path: '/contact', Component: Contact}
+            {path: '/contact', Component: Contact},
+            {path: '/dashboard', element: <PrivetRoute><DashboardPage/></PrivetRoute>},
         ]
     },
     {

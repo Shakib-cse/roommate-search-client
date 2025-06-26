@@ -54,7 +54,7 @@ export default function PostsDetails() {
   if (!post) return <Loading />;
 
   return (
-    <div className="w-11/12 mx-auto p-6 my-10 bg-base-200 rounded-xl shadow">
+    <div className="w-11/12 mx-auto p-6 my-30 bg-base-200 rounded-xl shadow">
       <h2 className="text-3xl font-bold mb-4">{post.title}</h2>
 
       <p className="text-lg font-semibold text-blue-600 mb-4">

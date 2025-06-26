@@ -123,7 +123,7 @@ const Login = () => {
             Forget Password
           </div>
 
-          <button className="btn btn-neutral mt-4">Login</button>
+          <button className="btn btn-neutral mt-4 bg-green-600 hover:bg-green-700">Login</button>
         </form>
         {/* Google */}
         <button

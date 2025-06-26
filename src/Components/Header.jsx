@@ -33,7 +33,7 @@ const Header = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/addtofindroommate">Add to Find Roommate</NavLink>
+        <NavLink to="/addtofindroommate">Add Post</NavLink>
       </li>
       <li>
         <NavLink to="/browselisting">Browse Listing</NavLink>
@@ -44,6 +44,9 @@ const Header = () => {
       <li>
         <NavLink to="/contact">Contact</NavLink>
       </li>
+      <li>
+        <NavLink to="/dashboard">Dashboard</NavLink>
+      </li>
       {user ? (
         <button onClick={logoutBtn} className="btn md:hidden">
           Logout
@@ -51,10 +54,10 @@ const Header = () => {
       ) : (
         <div className="md:hidden">
           <li>
-            <NavLink to="/login">Login</NavLink>
+            <Link className='bg-green-600 hover:bg-green-700' to="/login">Login</Link>
           </li>
           <li>
-            <NavLink to="/registration">Register</NavLink>
+            <Link className="bg-green-600 hover:bg-green-700" to="/registration">Register</Link>
           </li>
         </div>
       )}
@@ -135,10 +138,10 @@ const Header = () => {
           </>
         ) : (
           <div className="hidden md:block">
-            <Link to="/login" className="btn">
+            <Link to="/login" className="btn bg-green-600 hover:bg-green-700">
               Login
             </Link>
-            <Link to="/registration" className="btn ml-1">
+            <Link to="/registration" className="btn ml-1 bg-green-600 hover:bg-green-700">
               Register
             </Link>
           </div>

@@ -4,6 +4,7 @@ import Banner from "./Banner";
 import Counter from "./Counter";
 import FeturedRoommate from "./FeturedRoommate";
 import WhyChoose from "./WhyChoose";
+import PromotionalSection from "./PromotionalSection";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <main>
         <FeturedRoommate/>
         <Fade><Counter/></Fade>
+        <PromotionalSection/>
         <WhyChoose/>
       </main>
     </div>

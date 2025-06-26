@@ -5,7 +5,7 @@ const Counter = () => {
     return (
         <div>
             <section className="text-center py-12 bg-base-200 rounded-xl w-11/12 mx-auto my-10">
-      <h2 className="text-3xl font-bold mb-4">📊 S-Box Platform Statistics</h2>
+      <h2 className="text-3xl font-bold mb-4">📊 Roommate Search Platform Statistics</h2>
       <p className="mb-8">
         Helping users find roommates faster and easier — here's what we've achieved!
       </p>

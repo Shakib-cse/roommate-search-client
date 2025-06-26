@@ -189,7 +189,7 @@ const Registration = () => {
             {passwordValid}
           </div>
 
-          <button type="submit" className="btn btn-neutral mt-4">
+          <button type="submit" className="btn btn-neutral mt-4 bg-green-600 hover:bg-green-700">
             Registration
           </button>
         </form>

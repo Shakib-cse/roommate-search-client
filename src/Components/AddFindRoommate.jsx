@@ -77,124 +77,126 @@ export default function AddFindRoommate() {
   return (
     <Fade>
       <form
-      onSubmit={handleSubmit}
-      className="w-11/12 mx-auto p-6 bg-base-300 rounded-2xl shadow-lg space-y-4 my-30"
-    >
-      <h2 className="text-2xl font-bold text-center">Add a New Listing</h2>
-
-      <input
-        type="text"
-        name="title"
-        placeholder="Title (e.g., Looking for a roommate in NYC)"
-        value={formData.title}
-        onChange={handleChange}
-        required
-        className="w-full p-2 border rounded-lg"
-      />
-
-      <input
-        type="text"
-        name="location"
-        placeholder="Location"
-        value={formData.location}
-        onChange={handleChange}
-        required
-        className="w-full p-2 border rounded-lg"
-      />
-
-      <input
-        type="number"
-        name="rent"
-        placeholder="Rent Amount"
-        value={formData.rent}
-        onChange={handleChange}
-        required
-        className="w-full p-2 border rounded-lg"
-      />
-
-      <select
-        name="roomType"
-        value={formData.roomType}
-        onChange={handleChange}
-        required
-        className="w-full p-2 border rounded-lg bg-base-300"
+        onSubmit={handleSubmit}
+        className="w-11/12 mx-auto p-6 bg-base-300 rounded-2xl shadow-lg space-y-4 my-30"
       >
-        <option value="">Select Room Type</option>
-        <option value="Single">Single</option>
-        <option value="Shared">Shared</option>
-        <option value="Studio">Studio</option>
-      </select>
+        <h2 className="text-2xl font-bold text-center">Add a New Listing</h2>
 
-      <div>
-        <label className="block font-medium mb-1">Lifestyle Preferences:</label>
-        <div className="flex flex-wrap gap-4">
-          {lifestyleOptions.map((item) => (
-            <label key={item} className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                name="lifestyle"
-                value={item}
-                checked={formData.lifestyle.includes(item)}
-                onChange={handleChange}
-              />
-              {item}
-            </label>
-          ))}
+        <input
+          type="text"
+          name="title"
+          placeholder="Title (e.g., Looking for a roommate in NYC)"
+          value={formData.title}
+          onChange={handleChange}
+          required
+          className="w-full p-2 border rounded-lg"
+        />
+
+        <input
+          type="text"
+          name="location"
+          placeholder="Location"
+          value={formData.location}
+          onChange={handleChange}
+          required
+          className="w-full p-2 border rounded-lg"
+        />
+
+        <input
+          type="number"
+          name="rent"
+          placeholder="Rent Amount"
+          value={formData.rent}
+          onChange={handleChange}
+          required
+          className="w-full p-2 border rounded-lg"
+        />
+
+        <select
+          name="roomType"
+          value={formData.roomType}
+          onChange={handleChange}
+          required
+          className="w-full p-2 border rounded-lg bg-base-300"
+        >
+          <option value="">Select Room Type</option>
+          <option value="Single">Single</option>
+          <option value="Shared">Shared</option>
+          <option value="Studio">Studio</option>
+        </select>
+
+        <div>
+          <label className="block font-medium mb-1">
+            Lifestyle Preferences:
+          </label>
+          <div className="flex flex-wrap gap-4">
+            {lifestyleOptions.map((item) => (
+              <label key={item} className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name="lifestyle"
+                  value={item}
+                  checked={formData.lifestyle.includes(item)}
+                  onChange={handleChange}
+                />
+                {item}
+              </label>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <textarea
-        name="description"
-        placeholder="Description"
-        value={formData.description}
-        onChange={handleChange}
-        required
-        rows="4"
-        className="w-full p-2 border rounded-lg"
-      />
+        <textarea
+          name="description"
+          placeholder="Description"
+          value={formData.description}
+          onChange={handleChange}
+          required
+          rows="4"
+          className="w-full p-2 border rounded-lg"
+        />
 
-      <input
-        type="text"
-        name="contact"
-        placeholder="Contact Info"
-        value={formData.contact}
-        onChange={handleChange}
-        required
-        className="w-full p-2 border rounded-lg"
-      />
-
-      <select
-        name="availability"
-        value={formData.availability}
-        onChange={handleChange}
-        className="w-full p-2 border rounded-lg bg-base-300"
-      >
-        <option value="Available">Available</option>
-        <option value="Not Available">Not Available</option>
-      </select>
-
-      <div className="grid grid-cols-2 gap-4">
         <input
           type="text"
-          value={userEmail}
-          readOnly
-          className="w-full p-2 border rounded-lg bg-base-100"
+          name="contact"
+          placeholder="Contact Info"
+          value={formData.contact}
+          onChange={handleChange}
+          required
+          className="w-full p-2 border rounded-lg"
         />
-        <input
-          type="text"
-          value={userName}
-          readOnly
-          className="w-full p-2 border rounded-lg bg-base-100"
-        />
-      </div>
 
-      <button
-        type="submit"
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg cursor-pointer"
-      >
-        Add Listing
-      </button>
-    </form>
+        <select
+          name="availability"
+          value={formData.availability}
+          onChange={handleChange}
+          className="w-full p-2 border rounded-lg bg-base-300"
+        >
+          <option value="Available">Available</option>
+          <option value="Not Available">Not Available</option>
+        </select>
+
+        <div className="grid grid-cols-2 gap-4">
+          <input
+            type="text"
+            value={userEmail}
+            readOnly
+            className="w-full p-2 border rounded-lg bg-base-100"
+          />
+          <input
+            type="text"
+            value={userName}
+            readOnly
+            className="w-full p-2 border rounded-lg bg-base-100"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-lg cursor-pointer"
+        >
+          Add Listing
+        </button>
+      </form>
     </Fade>
   );
 }

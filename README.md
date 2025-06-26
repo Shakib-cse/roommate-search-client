@@ -31,7 +31,5 @@ A modern, responsive web application that helps users find and post shared room 
 | React Router    | MongoDB         | Vercel Deployment    |
 | Tailwind CSS    | Node.js         | DaisyUI & Toastify   |
 
----
 
-## 📁 Folder Structure
 
